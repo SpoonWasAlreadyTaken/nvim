@@ -31,3 +31,5 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.opt.winborder = 'rounded'
+
+vim.opt.clipboard = "unnamedplus"
