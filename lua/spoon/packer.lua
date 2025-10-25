@@ -15,10 +15,10 @@ return require('packer').startup(function(use)
 
     use({
 	    'EdenEast/nightfox.nvim',
-	   as = 'nightfox',
-	  config = function()
-		  vim.cmd('colorscheme duskfox')
-	  end
+	    config = function()
+            require("nightfox").setup({})
+		    vim.cmd('colorscheme duskfox')
+	    end
     })
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
