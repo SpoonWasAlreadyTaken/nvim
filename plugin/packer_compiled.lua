@@ -85,6 +85,11 @@ _G.packer_plugins = {
     path = "/home/Spoon/.local/share/nvim/site/pack/packer/start/nightfox",
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/Spoon/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/Spoon/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

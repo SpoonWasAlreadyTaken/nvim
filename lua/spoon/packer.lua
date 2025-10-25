@@ -5,27 +5,29 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
-  use {
+    use {
   	'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	-- or                            , branch = '0.1.x',
-  	requires = { {'nvim-lua/plenary.nvim'} }
+	    -- or                            , branch = '0.1.x',
+  	    requires = { {'nvim-lua/plenary.nvim'} }
       }
 
-  use({
-	  'EdenEast/nightfox.nvim',
-	  as = 'nightfox',
+    use({
+	    'EdenEast/nightfox.nvim',
+	   as = 'nightfox',
 	  config = function()
 		  vim.cmd('colorscheme duskfox')
 	  end
-  })
+    })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use('nvim-treesitter/playground')
+    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/playground')
 
-  use('theprimeagen/harpoon')
-  use('mbbill/undotree')
-  use('tpope/vim-fugitive')
+    use('theprimeagen/harpoon')
+    use('mbbill/undotree')
+    use('tpope/vim-fugitive')
+    
+    use('neovim/nvim-lspconfig')
 
   end)
