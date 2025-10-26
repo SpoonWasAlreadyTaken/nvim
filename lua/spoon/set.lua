@@ -11,6 +11,9 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "↪ "
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -25,11 +28,12 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 vim.opt.winborder = 'rounded'
 
 vim.opt.clipboard = "unnamedplus"
+
+-- crazy, I was crazy once. They locked me in a room a rubber room with rats. Rats, rats make me crazy, crazy. I was crazy once they locked me in a room, a rubber room with rats. Rats, rats make me crazy, crazy I was crazy once they locked me in a room. A rubber room, a rubber room with rats. Rats, rats make me crazy, crazy I was crazy once they locked me in a room a rubber room with rats. Rats make me crazy, crazy I was crazy once. They locked me in a room a rubber room with rats. Rats, rats make me crazy, crazy. I was crazy once, they locked me in a room. A rubber room with rats, rats rats make me crazy. Crazy, I was crazy once they locked me in a room, a rubber room with rats. Rats, rats make me crazy, crazy I was crazy once they locked me in a room with rats. Rats make me crazy. Crazy, I was crazy once, they locked me in a room...
