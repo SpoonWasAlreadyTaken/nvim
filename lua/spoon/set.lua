@@ -30,7 +30,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "181,183,185"
 
 vim.opt.winborder = 'rounded'
 
