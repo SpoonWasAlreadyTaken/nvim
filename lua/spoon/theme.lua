@@ -34,7 +34,7 @@ require("nightfox").setup({
             },
             yellow = {
                 base = "#ff7c36", -- type specifier
-                bright = "#000000", -- nothing yet
+                bright = "#ffe770", -- nothing yet
                 dim = "#000000" -- nothing yet
             },
             bg1 = "#121315",
