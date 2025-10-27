@@ -2,22 +2,61 @@ require("nightfox").setup({
     palettes = {
         duskfox = {
             comment = "#424242",
-            red = { base = "#ff005e", bright = "#ff005e", dim = "#c40048" },
-            cyan = { base = "#008080", bright = "#00b8b8", dim = "#006363" },
-            magenta = { base = "#beb7ff", bright = "#dad6ff", dim = "#746fa1" },
-            blue = { base = "#da00f2", bright = "#938bb4", dim = "#4ec9b0" },
-            bg1 = "#121315"
+            red = {
+                base = "#938bb4", -- function call
+                bright = "#000000", -- nothing yet
+                dim = "#a769ff" -- nothing yet
+            },
+            cyan = {
+                base = "#000000", -- nothing yet
+                bright = "#00c7a2", -- namespace types
+                dim = "#000000" -- nothing yet
+            },
+            magenta = {
+                base = "#beb7ff", -- const and public/private
+                bright = "#ff005d", -- conditionals
+                dim = "#000000" -- nothing yet
+            },
+            blue = {
+                base = "#ffb5fd", -- local variables
+                bright = "#c3a3ff", -- functions 
+                dim = "#000000" -- nothing yet
+            },
+            pink = {
+                base = "#000000", -- nothing yet
+                bright = "#b568d4", -- include
+                dim = "#000000" -- nothing yet
+            },
+            orange = {
+                base = "#f1cfff", -- numbers
+                bright = "#6f009c", -- enums and null
+                dim = "#000000" -- nothing yet
+            },
+            yellow = {
+                base = "#ff7c36", -- type specifier
+                bright = "#000000", -- nothing yet
+                dim = "#000000" -- nothing yet
+            },
+            bg1 = "#121315",
+        },
+    },
+    specs = {
+        duskfox = {
+            syntax = {
+                builtin1 = "red.dim",
+                operator = "red.dim",
+            },
         },
     },
     options = {
         styles = {
+            conditionals = "bold",
             keywords = "bold",
-            functions = "italic,bold",
+            functions = "bold",
         },
     },
 
 })
 -- super sexy
 vim.cmd("colorscheme duskfox")
-
 

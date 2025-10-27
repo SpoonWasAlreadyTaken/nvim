@@ -1,6 +1,6 @@
 vim.o.laststatus = 3
 
-function mode()
+function Mode()
     local m = vim.fn.mode()
     local modes = {
         n = "NORMAL",
@@ -15,12 +15,21 @@ function mode()
     return modes[m] or m
 end
 
-vim.api.nvim_set_hl(0, "TextHL", {fg="#121315",bg="#e97dff",bold=true})
-vim.api.nvim_set_hl(0, "SymbolHL", {fg="#e97dff",bg="#121315",bold=true})
+local function setup_custom_highlights()
+    vim.api.nvim_set_hl(0, "TextHL", {fg="#121315",bg="#e97dff",bold=true})
+    vim.api.nvim_set_hl(0, "SymbolHL", {fg="#e97dff",bg="#121315",bold=true})
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = setup_custom_highlights,
+})
+setup_custom_highlights()
+
 
 local statusline = {
     '%#SymbolHL#','',
-    '%#TextHL#','%{v:lua.mode()}',
+    '%#TextHL#','%{v:lua.Mode()}',
     '%#SymbolHL#',' ',
 
     '%#SymbolHL#','',
