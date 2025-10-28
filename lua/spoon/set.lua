@@ -25,7 +25,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 13
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
@@ -33,5 +33,7 @@ vim.opt.updatetime = 50
 vim.opt.winborder = 'rounded'
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 
 -- crazy, I was crazy once. They locked me in a room a rubber room with rats. Rats, rats make me crazy, crazy. I was crazy once they locked me in a room, a rubber room with rats. Rats, rats make me crazy, crazy I was crazy once they locked me in a room. A rubber room, a rubber room with rats. Rats, rats make me crazy, crazy I was crazy once they locked me in a room a rubber room with rats. Rats make me crazy, crazy I was crazy once. They locked me in a room a rubber room with rats. Rats, rats make me crazy, crazy. I was crazy once, they locked me in a room. A rubber room with rats, rats rats make me crazy. Crazy, I was crazy once they locked me in a room, a rubber room with rats. Rats, rats make me crazy, crazy I was crazy once they locked me in a room with rats. Rats make me crazy. Crazy, I was crazy once, they locked me in a room...

@@ -5,7 +5,7 @@ require("nightfox").setup({
             red = {
                 base = "#938bb4", -- function call
                 bright = "#000000", -- nothing yet
-                dim = "#a769ff" -- nothing yet
+                dim = "#a769ff" -- operators and types
             },
             cyan = {
                 base = "#000000", -- nothing yet
@@ -33,8 +33,8 @@ require("nightfox").setup({
                 dim = "#000000" -- nothing yet
             },
             yellow = {
-                base = "#ff7c36", -- type specifier
-                bright = "#ffe770", -- nothing yet
+                base = "#ff7c36", -- type specifier brackets and highlights
+                bright = "#ffe770", -- escape code?
                 dim = "#000000" -- nothing yet
             },
             bg1 = "#121315",
