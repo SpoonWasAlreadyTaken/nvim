@@ -37,6 +37,11 @@ require("nightfox").setup({
                 bright = "#ffe770", -- escape code?
                 dim = "#000000" -- nothing yet
             },
+            white = {
+                base = "#ffffff",
+                bright = "#ffffff",
+                dim = "#e2e2e2"
+            },
             bg1 = "#121315",
         },
     },
