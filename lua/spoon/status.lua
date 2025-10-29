@@ -55,6 +55,10 @@ local statusline = {
 
     '%#SymbolHL#','',
     '%#TextHL#',' %2p%% ', -- view percentige
+    '%#SymbolHL#','',
+
+    '%#SymbolHL#','',
+    '%#TextHL#',' %{winnr()} ', --  window number
 }
 
 vim.o.statusline = table.concat(statusline, '')
