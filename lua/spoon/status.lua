@@ -30,12 +30,11 @@ setup_custom_highlights()
 
 
 local statusline = {
-    '%#SymbolHL#','',
-    '%#TextHL#','%{v:lua.Mode()}',
-    '%#SymbolHL#',' ',
+    '%#TextHL#',' %{v:lua.Mode()}',
+    '%#SymbolHL#','',
 
-    '%#SymbolHL#','',
-    '%#TextHL#','%t', -- file
+    '%#SymbolHL#','',
+    '%#TextHL#',' %t', -- file
     '%r', -- if is read only
     '%m', -- if modified
     ' %#SymbolHL#','',
