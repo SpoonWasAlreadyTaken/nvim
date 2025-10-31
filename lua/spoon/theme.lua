@@ -8,7 +8,7 @@ require("nightfox").setup({
                 dim = "#a769ff" -- operators and types
             },
             cyan = {
-                base = "#000000", -- nothing yet
+                base = "#5abf9f", -- structs and methods
                 bright = "#00c7a2", -- namespace types
                 dim = "#000000" -- nothing yet
             },
@@ -33,7 +33,7 @@ require("nightfox").setup({
                 dim = "#000000" -- nothing yet
             },
             yellow = {
-                base = "#ff7c36", -- type specifier brackets and highlights
+                base = "#ff7c36", -- type specifier brackets and highlights class and struct
                 bright = "#ffe770", -- escape code?
                 dim = "#000000" -- nothing yet
             },
