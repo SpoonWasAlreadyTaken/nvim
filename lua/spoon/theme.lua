@@ -50,7 +50,13 @@ require("nightfox").setup({
             syntax = {
                 builtin1 = "red.dim",
                 operator = "red.dim",
-            },
+                type = "cyan.base",
+            }
+        },
+    },
+    groups = {
+        all = {
+            ["@module"] = {fg = "#008080"},
         },
     },
     options = {
