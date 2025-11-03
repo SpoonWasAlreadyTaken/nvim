@@ -33,7 +33,7 @@ vim.opt.updatetime = 50
 
 vim.opt.winborder = 'rounded'
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = ""
 
 vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
 
