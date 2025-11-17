@@ -15,10 +15,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
             vim.keymap.set('i', '<C-Space>', vim.lsp.completion.get, { buffer = args.buf })
         end
+
+        if client.supports_method('textDocument/inlayHint') then
+            vim.lsp.inlay_hint.enable(true, args)
+        end
     end,
 })
 
 vim.diagnostic.config({
     virtual_lines = true,
+})
+
+vim.api.nvim_set_hl(0, "LspInlayHint", {
+    fg = "#26324d",
+    bg = "#121315",
+    italic = true,
 })
 
