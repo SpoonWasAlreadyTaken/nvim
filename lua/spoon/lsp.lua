@@ -26,9 +26,4 @@ vim.diagnostic.config({
     virtual_lines = true,
 })
 
-vim.api.nvim_set_hl(0, "LspInlayHint", {
-    fg = "#26324d",
-    bg = "#121315",
-    italic = true,
-})
 
