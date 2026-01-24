@@ -42,7 +42,7 @@ require("nightfox").setup({
                 bright = "#ffffff",
                 dim = "#e2e2e2"
             },
-            bg1 = "#121315",
+            bg1 = "#040405",
         },
     },
     specs = {
