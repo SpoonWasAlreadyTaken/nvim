@@ -1,5 +1,18 @@
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+vim.lsp.config('clangd', {
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--header-insertion=never",
+    },
+    capabilities = capabilities,
+})
+
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clangd')
+
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
@@ -10,15 +23,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local client = vim.lsp.get_client_by_id(client_id)
         if not client then return end
 
-        if client.supports_method('textDocument/completion') then
-            vim.opt.completeopt = { 'menu', 'menuone', 'noinsert', 'fuzzy', 'popup' }
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-            vim.keymap.set('i', '<C-Space>', vim.lsp.completion.get, { buffer = args.buf })
+        if client:supports_method('textDocument/inlayHint') then
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
         end
 
-        if client.supports_method('textDocument/inlayHint') then
-            vim.lsp.inlay_hint.enable(true, args)
-        end
     end,
 })
 
