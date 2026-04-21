@@ -8,6 +8,10 @@ cmp.setup({
     end,
   },
 
+  completion = {
+        autocomplete = false,
+    },
+
   window = {
     completion = cmp.config.window.bordered({
       border = "rounded",
@@ -38,9 +42,15 @@ cmp.setup({
 
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol_text', -- shows icon + text
+      mode = 'symbol_text',
       maxwidth = 50,
       ellipsis_char = '...',
     }),
   },
+})
+
+cmp.setup.filetype({ 'lua', 'c', 'cpp', 'cs', 'hpp', 'h' }, {
+    completion = {
+        autocomplete = { cmp.TriggerEvent.TextChanged },
+    },
 })
