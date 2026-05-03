@@ -78,11 +78,16 @@ local plugins = {
                         return
                     end
 
+                    local function start_treesitter()
+                        vim.treesitter.start(args.buf)
+                    end
+
                     if not vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)) then
                         treesitter.install(vim.bo[args.buf].filetype)
+                        vim.defer_fn(start_treesitter, 10000)
                     end
                     if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)) then
-                        vim.treesitter.start(args.buf)
+                        start_treesitter()
                     end
                 end,
             })
