@@ -17,9 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-'nvim-lua/plenary.nvim',
+    'nvim-lua/plenary.nvim',
 
-{
+    {
     'nvim-telescope/telescope.nvim',
         branch = 'master',
         dependencies = {
@@ -27,16 +27,16 @@ local plugins = {
             'nvim-treesitter/nvim-treesitter',
         },
     },
-{
+    {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install',
     },
-{
+    {
         'nvim-tree/nvim-web-devicons',
         opts = {},
     },
 
-{
+    {
 	'EdenEast/nightfox.nvim',
         lazy = false,
 	    config = function()
@@ -45,7 +45,7 @@ local plugins = {
 	    end
     },
 
-{
+    {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         event = { "BufReadPost", "BufNewFile" },
@@ -64,30 +64,30 @@ local plugins = {
         end,
     },
 
-{
+    {
     'theprimeagen/harpoon',
         branch = "harpoon2",
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
 
-'mbbill/undotree',
-'tpope/vim-fugitive',
+    'mbbill/undotree',
+    'tpope/vim-fugitive',
 
-'neovim/nvim-lspconfig',
+    'neovim/nvim-lspconfig',
 
-'hrsh7th/nvim-cmp',
+    'hrsh7th/nvim-cmp',
 
-'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lsp',
 
-'hrsh7th/cmp-buffer',
-'hrsh7th/cmp-path',
-{
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    {
         'L3MON4D3/LuaSnip',
         build = "make install_jsregexp",
     },
-'saadparwaiz1/cmp_luasnip',
+    'saadparwaiz1/cmp_luasnip',
 
-'onsails/lspkind.nvim',
+    'onsails/lspkind.nvim',
 }
 
 local opts = {}
