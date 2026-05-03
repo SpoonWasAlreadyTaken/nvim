@@ -38,6 +38,7 @@ local plugins = {
 
 {
 	'EdenEast/nightfox.nvim',
+        lazy = false,
 	    config = function()
             require("nightfox").setup({})
 		    vim.cmd('colorscheme duskfox')
@@ -45,19 +46,21 @@ local plugins = {
     },
 
 {
-    'nvim-treesitter/nvim-treesitter',
-        lazy = false,
+        'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
+        event = { "BufReadPost", "BufNewFile" },
         config = function()
-             require('nvim-treesitter.config').setup({
-                ensure_installed = { "cpp", "bash", "c_sharp", "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+            require('nvim-treesitter.config').setup({
+                ensure_installed = { "cpp", "bash", "c_sharp", "c", "lua", "vim", "vimdoc","query", "markdown", "markdown_inline" },
                 sync_install = false,
                 auto_install = true,
-
-                highlight = {
-                    enable = true,
-                },
             })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function(args)
+            pcall(vim.treesitter.start, args.buf)
+            end,
+        })
         end,
     },
 
