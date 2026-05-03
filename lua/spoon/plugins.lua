@@ -50,17 +50,42 @@ local plugins = {
         build = ':TSUpdate',
         event = { "BufReadPost", "BufNewFile" },
         config = function()
-            require('nvim-treesitter.config').setup({
-                ensure_installed = { "cpp", "bash", "c_sharp", "c", "lua", "vim", "vimdoc","query", "markdown", "markdown_inline" },
-                sync_install = false,
-                auto_install = true,
-            })
+            local config = require('nvim-treesitter.config')
+            local treesitter = require('nvim-treesitter')
 
-        vim.api.nvim_create_autocmd("FileType", {
-            callback = function(args)
-            pcall(vim.treesitter.start, args.buf)
-            end,
-        })
+            local ensure_installed = { 'cpp', 'c', 'c_sharp', 'lua', 'vim', 'vimdoc', 'bash', 'markdown', 'markdown_inline' }
+            local already_installed = config.get_installed()
+            local to_install = {}
+
+            for _, parser in ipairs(ensure_installed) do
+                if not vim.tbl_contains(already_installed, parser) then
+                    table.insert(to_install, parser)
+                end
+            end
+
+            if #to_install > 0 then
+                treesitter.install(to_install)
+            end
+
+            local group = vim.api.nvim_create_augroup('TreesitterConfig', { clear = true })
+            vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+                group = group,
+                callback = function(args)
+                    if vim.bo[args.buf].buftype ~= "" then
+                        return
+                    end
+                    if vim.bo[args.buf].filetype == "" then
+                        return
+                    end
+
+                    if not vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)) then
+                        treesitter.install(vim.bo[args.buf].filetype)
+                    end
+                    if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)) then
+                        vim.treesitter.start(args.buf)
+                    end
+                end,
+            })
         end,
     },
 

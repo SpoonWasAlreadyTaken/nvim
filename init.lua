@@ -1,4 +1,12 @@
+vim.env.PATH = table.concat({
+  vim.env.HOME .. "/.npm-global/bin",
+  vim.env.HOME .. "/.cargo/bin",
+  vim.env.HOME .. "/.local/bin",
+  vim.env.PATH
+}, ":")
+
 require("spoon")
+
 
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
