@@ -38,17 +38,15 @@ local plugins = {
 
     {
 	'EdenEast/nightfox.nvim',
-        lazy = false,
 	    config = function()
-            require("nightfox").setup({})
-		    vim.cmd('colorscheme duskfox')
+            require("spoon.theme")
 	    end
     },
 
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
-        event = { "BufReadPost", "BufNewFile" },
+        lazy = false,
         config = function()
             local config = require('nvim-treesitter.config')
             local treesitter = require('nvim-treesitter')
@@ -71,24 +69,22 @@ local plugins = {
             vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
                 group = group,
                 callback = function(args)
-                    if vim.bo[args.buf].buftype ~= "" then
-                        return
-                    end
-                    if vim.bo[args.buf].filetype == "" then
-                        return
-                    end
+                    if vim.v.exiting ~= vim.NIL then return end
+                    if vim.bo[args.buf].buftype ~= "" then return end
+                    if vim.bo[args.buf].filetype == "" then return end
+
+                    local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
 
                     local function start_treesitter()
-                        vim.treesitter.start(args.buf)
+                        if vim.list_contains(treesitter.get_installed(), lang) then
+                            vim.treesitter.start(args.buf)
+                        end
                     end
 
-                    if not vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)) then
-                        treesitter.install(vim.bo[args.buf].filetype)
-                        vim.defer_fn(start_treesitter, 10000)
+                    if not vim.list_contains(treesitter.get_installed(), lang) then
+                            treesitter.install(lang):await(function() start_treesitter() end)
                     end
-                    if vim.list_contains(treesitter.get_installed(), vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)) then
-                        start_treesitter()
-                    end
+                    start_treesitter()
                 end,
             })
         end,

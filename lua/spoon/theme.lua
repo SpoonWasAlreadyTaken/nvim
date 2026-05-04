@@ -1,6 +1,7 @@
 require("nightfox").setup({
     palettes = {
         duskfox = {
+            bg1 = "#040405",
             comment = "#424242",
             red = {
                 base = "#938bb4", -- function call
@@ -42,7 +43,6 @@ require("nightfox").setup({
                 bright = "#ffffff",
                 dim = "#e2e2e2"
             },
-            bg1 = "#040405",
         },
     },
     specs = {
@@ -68,6 +68,6 @@ require("nightfox").setup({
     },
 
 })
--- super sexy
 vim.cmd("colorscheme duskfox")
+
 
