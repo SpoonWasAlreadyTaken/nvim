@@ -20,7 +20,7 @@ local plugins = {
     'nvim-lua/plenary.nvim',
 
     {
-    'nvim-telescope/telescope.nvim',
+        'nvim-telescope/telescope.nvim',
         branch = 'master',
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -37,7 +37,7 @@ local plugins = {
     },
 
     {
-	'EdenEast/nightfox.nvim',
+	    'EdenEast/nightfox.nvim',
 	    config = function()
             require("spoon.theme")
 	    end
@@ -82,7 +82,8 @@ local plugins = {
                     end
 
                     if not vim.list_contains(treesitter.get_installed(), lang) then
-                            treesitter.install(lang):await(function() start_treesitter() end)
+                        if not vim.list_contains(treesitter.get_available(), lang) then return end
+                        treesitter.install(lang):await(function() start_treesitter() end)
                     end
                     start_treesitter()
                 end,
@@ -91,7 +92,7 @@ local plugins = {
     },
 
     {
-    'theprimeagen/harpoon',
+        'theprimeagen/harpoon',
         branch = "harpoon2",
         dependencies = { {'nvim-lua/plenary.nvim'} }
     },
