@@ -11,8 +11,15 @@ return {
                 version = 'LuaJIT',
             },
             diagnostics = {
-                globals = { 'vim' },
+                globals = { 'vim', 'hl' },
             },
+            workspace = {
+                library = { '/usr/share/hypr/stubs',
+                vim.env.VIMRUNTIME,
+            },
+            checkThirdParty = false,
+        },
+
         }
     }
 }
