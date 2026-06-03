@@ -1,5 +1,6 @@
 vim.o.laststatus = 3
 
+
 function Mode()
     local m = vim.fn.mode()
     local modes = {
@@ -21,14 +22,16 @@ local function setup_custom_highlights()
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg="#ff7c36",bg="#040405",bold=true })
     vim.api.nvim_set_hl(0, "CursorLine", { bg = "none" })
     vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#26324d",bg = "#040405",italic = true })
-    vim.api.nvim_set_hl(0, "G1", {fg = "#040405", bg = "#422549"})
-    vim.api.nvim_set_hl(0, "G2", {fg = "#422549", bg = "#7D4489"})
-    vim.api.nvim_set_hl(0, "G3", {fg = "#7D4489", bg = "#b763c9"})
-    vim.api.nvim_set_hl(0, "G0", {fg = "#b763c9", bg = "#e97dff"})
-    vim.api.nvim_set_hl(0, "GR1", {fg = "#b763c9", bg = "#7D4489"})
-    vim.api.nvim_set_hl(0, "GR2", {fg = "#7D4489", bg = "#422549"})
-    vim.api.nvim_set_hl(0, "GR3", {fg = "#422549", bg = "#040405"})
-    vim.api.nvim_set_hl(0, "GR0", {fg = "#e97dff", bg = "#b763c9"})
+    vim.api.nvim_set_hl(0, "Pmenu", { fg="#e2e2e2", bg="#040405" })
+    vim.api.nvim_set_hl(0, "PmenuSel", { fg="#e2e2e2", bg="#422549" })
+    vim.api.nvim_set_hl(0, "G1", { fg = "#040405", bg = "#422549" })
+    vim.api.nvim_set_hl(0, "G2", { fg = "#422549", bg = "#7D4489" })
+    vim.api.nvim_set_hl(0, "G3", { fg = "#7D4489", bg = "#b763c9" })
+    vim.api.nvim_set_hl(0, "G0", { fg = "#b763c9", bg = "#e97dff" })
+    vim.api.nvim_set_hl(0, "GR1", { fg = "#b763c9", bg = "#7D4489" })
+    vim.api.nvim_set_hl(0, "GR2", { fg = "#7D4489", bg = "#422549" })
+    vim.api.nvim_set_hl(0, "GR3", { fg = "#422549", bg = "#040405" })
+    vim.api.nvim_set_hl(0, "GR0", { fg = "#e97dff", bg = "#b763c9" })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
