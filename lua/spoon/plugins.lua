@@ -91,12 +91,6 @@ local plugins = {
         end,
     },
 
-    {
-        'theprimeagen/harpoon',
-        branch = "harpoon2",
-        dependencies = { {'nvim-lua/plenary.nvim'} }
-    },
-
     'mbbill/undotree',
     'tpope/vim-fugitive',
 
